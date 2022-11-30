@@ -12,9 +12,13 @@ export function World() {
     const cube = createCube();
     const light = createLights();
 
+    function onResize() {
+        render();
+    }
+
     scene.add(cube, light);
 
-    Resizer(camera, renderer);
+    Resizer(camera, renderer, onResize);
 
     const render = () => {
         renderer.render(scene, camera);
